@@ -1,5 +1,7 @@
-:root {
-
+/* `::backdrop` selector will be able to inherit these values.
+*/
+:root, ::backdrop {
+	--dialog-backdrop-background: rgba(0, 0, 0, 0.5);
 }
 
 html, body {
@@ -10,11 +12,33 @@ body {
 	font: normal normal normal 16px/1em sans-serif;
 }
 
-body {
+body,
+h1 {
 	margin: 0;
 }
 
 body {
 	display: flex; justify-content: center;
 	align-items: center;
+}
+
+dialog {
+	max-width: 500px;
+}
+
+dialog::backdrop {
+	background: var(--dialog-backdrop-background);
+}
+
+/* Я решил, что узким экраном является экран,
+   который имеет ширину меньше, чем 640 пикселей.
+*/
+form {
+	display: flex; flex-direction: column;
+}
+
+@media (min-width: 640px) {
+	form {
+		flex-direction: row; flex-wrap: wrap;
+	}
 }

@@ -8,7 +8,31 @@
 	</head>
 	<body>
 		<div id='root'>
-			<button autofocus popovertarget='form' type='button'>
+			<dialog id='dialog' popover>
+				<h1>Заголовок</h1>
+				<form id='form'>
+					<label autocapitalize for='firstName'>
+						Имя <input id='firstName' name='firstName' type='text' />
+					</label>
+					<label autocapitalize for='lastName'>
+						Фамилия <input id='lastName' name='lastName' type='text' />
+					</label>
+					<label autocapitalize for='middleName'>
+						Отчество <input id='middleName' name='middleName' type='text' />
+					</label>
+					<label autocomplete='email' for='mail'>
+						Почта <input id='mail' name='mail' type='email' />
+					</label>
+					<label for='gender'>
+						Пол
+						<input id='maleGender' name='gender' type='radio' value='male' />
+						<input id='femaleGender' name='gender' type='radio' value='female' />
+					</label>
+				</form>
+				<!--<input id='send' popovertarget='dialog' popovertargetaction='hide' type='submit'>-->
+				<input form='form' type='submit' />
+			</dialog>
+			<button id='start' autofocus popovertarget='dialog' type='button'>
 				Начать
 			</button>
 		</div>
