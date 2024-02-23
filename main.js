@@ -1,20 +1,29 @@
 import './index.css'
 
-/** @type {HTMLFormElement|null} */
-const form = document.getElementById('form')
-
-/** @param {SubmitEvent} event */
-const handleSubmit = event => { event.preventDefault()
-	/** @type {HTMLFormElement} */
-	const currentTarget = event.currentTarget
-	if (!currentTarget) {
-		return
-	}
-	/** Словарь, который содержит пары ключ/значение, где
-		* ключ является именем поля, а
-		* значение является значением поля.
-	*/
-	const dictionary = Array.from(currentTarget.elements, element => [element.name, element.value])
+/** @param {HTMLFormElement} element */
+function constructObjectFromFormElement(element) {
+	const object = {}
+	Array.from(element.elements, el => console.log(el.checked))
+	Array.from(element.elements, ({ name, value, multiple, checked }) => {
+		if (name in object && !checked) {
+			return
+		}
+		object[name] = value
+	})
+	return object
 }
 
-form.addEventListener('submit', handleSubmit)
+/** @type {HTMLFormElement|null} */
+const dialog = document.getElementById('dialog')
+const form = document.getElementById('form')
+const target = document.getElementById('json')
+
+/** @param {ToggleEvent} event */
+const handleToggle = event => {
+	if (event.newState.includes('open')) {
+		return
+	}
+	target.innerText = JSON.stringify(constructObjectFromFormElement(form))
+}
+
+dialog.addEventListener('toggle', handleToggle)

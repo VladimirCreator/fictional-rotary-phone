@@ -25,16 +25,27 @@
 					</label>
 					<label for='gender'>
 						Пол
-						<input id='maleGender' name='gender' type='radio' value='male' />
-						<input id='femaleGender' name='gender' type='radio' value='female' />
+						<label for='maleGender'>
+							Мужской
+							<input id='maleGender' name='gender' type='radio' value='male' />
+						</label>
+						<label for='femaleGender'>
+							Женский <input id='femaleGender' name='gender' type='radio' value='female' />
+						</label>
 					</label>
 				</form>
-				<!--<input id='send' popovertarget='dialog' popovertargetaction='hide' type='submit'>-->
-				<input form='form' type='submit' />
+				<button popovertarget='dialog' popovertargetaction='hide'>
+					Отправить
+				</button>
 			</dialog>
-			<button id='start' autofocus popovertarget='dialog' type='button'>
-				Начать
-			</button>
+			<main>
+				<button id='start' autofocus popovertarget='dialog' type='button'>
+					Начать
+				</button>
+			</main>
+			<aside>
+				<p id='json'></p>
+			</aside>
 		</div>
 		<script type='module' src='./main.js'></script>
 	</body>
