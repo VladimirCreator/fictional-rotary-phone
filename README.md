@@ -1,2 +1,10 @@
 # fictional-rotary-phone
-`@VladimirCreator` decided to create this repository at 7:34 AM on Fri 23 Feb 2024.
+
+## Описание
+
+### Топики
+
+## Обсуждение
+
+## Лицензия
+Данный пакет находится под влиянием лицензии [?](LICENSE).
